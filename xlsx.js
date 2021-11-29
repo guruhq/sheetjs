@@ -14044,7 +14044,7 @@ function write_ws_xml_cell(cell, ref, ws, opts) {
 		case 'e': o.t = "e"; break;
 		case 'z': break;
 		default: if(cell.v == null) { delete cell.t; break; }
-			if(cell.v.length > 32767) throw new Error("Text length must not exceed 32767 characters");
+			if(cell.v.length > 1048576) throw new Error("Text length must not exceed 1048576 characters");
 			if(opts && opts.bookSST) {
 				v = writetag('v', ''+get_sst_id(opts.Strings, cell.v, opts.revStrings));
 				o.t = "s"; break;
